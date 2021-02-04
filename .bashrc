@@ -1,52 +1,30 @@
-################################################################################
-#source global definitions
-################################################################################
-
+# Source global definitions
 #if [ -f /etc/bashrc ]
 #    then . /etc/bashrc
 #fi
 
-################################################################################
-#check window size after each command and adjust accordingly
-################################################################################
-
+# Check window size after each command and adjust accordingly
 shopt -s checkwinsize
 
-################################################################################
-#enable auto-completion
-#
-#yum install -y auto-completion*
-################################################################################
-
+# Enable auto-completion
+# yum install -y auto-completion*
 if [ -f /usr/share/bash-completion/bash_completion ]
     then . /usr/share/bash-completion/bash_completion
 elif [ -f /etc/bash_completion ]
     then . /etc/bash_completion
 fi
 
-################################################################################
-#paths and environment variables
-################################################################################
-
+# Paths and environment variables
 #export PATH="/home/user/anaconda3/bin:$PATH"
 
-################################################################################
-#expand history size
-################################################################################
-
+# Expand history size
 export HISTFILESIZE=10000
 export HISTSIZE=500
 
-################################################################################
-#prompt modification
-################################################################################
-
+# Prompt modification
 PS1="\[\033[1;32m\]\w $ \[\033[0m\]"
 
-################################################################################
-#aliases
-################################################################################
-
+# Aliases
 alias l="ls -Ahlv --group-directories-first --color=auto"
 alias ..="cd .."
 alias v="vim"
@@ -57,14 +35,12 @@ alias gitkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 alias gacm='git add -A && git commit -m'
 alias gs='git stash'
 
-################################################################################
-#functions
-#
-#list all functions: declare -f 
-#remove function: unset -f [FUNCTION]
-################################################################################
+# Functions
+# List all functions: declare -f 
+# Remove function: unset -f [FUNCTION]
 
-#add all files, commit, and push
+# New workflow = `git stash` to store all changes, then `gdone`
+# Add all files, commit, and push
 gdone () {
   echo
   echo "####################### CHECK IF STASHES ARE APPLIED #####################"
@@ -96,18 +72,11 @@ gdone () {
   echo
 }
 
-################################################################################
-#start tmux automatically
-#
-#https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login
-################################################################################
-
+# Start tmux automatically
+# https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login
 #[[ $- != *i* ]] && return
 #[[ -z "$TMUX" ]] && exec tmux
 
-################################################################################
-#gitkey
-################################################################################
-
+# Gitkey
 #eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa
 
