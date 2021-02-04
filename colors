@@ -1,0 +1,56 @@
+#!/bin/bash
+
+echo
+echo "################################################################################"
+echo "# ANSI colors"
+echo "################################################################################"
+echo
+
+echo '\e[0;x    \e\[1;x    x = *m value'
+echo
+
+for i in {30..37}
+  do echo -e "\e[0;${i}m${i}m\t\e[1;${i}m${i}m"
+done
+
+echo -e "\e[m"
+echo 'No color = \e[m'
+
+echo
+echo "################################################################################"
+echo "# 256 colors"
+echo "################################################################################"
+echo
+
+echo '\e[38;5;x    x = *m value'
+echo
+
+# 0-15
+for i in {0..15}
+  do echo -en "\033[38;5;${i}m${i}m  "
+done
+
+echo
+echo
+
+for i in  {0..35};
+do
+  for j in {16..232..36};
+  do
+    if (( $j + $i <= 256 ));
+    then
+      echo -en "\e[38;5;$((j+i))m$((j+i))m\t"
+    fi
+  done
+  echo
+done
+
+echo -e "\e[m"
+echo  'No color = \e[m'
+
+echo
+echo "################################################################################"
+echo '# Note: both were tested on the terminal: xterm-256color'
+echo '# Check with $TERM'
+echo "################################################################################"
+echo

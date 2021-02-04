@@ -1,0 +1,27 @@
+################################################################################
+# modifications
+################################################################################
+
+# selects panes with mouse
+mousetrack on
+
+################################################################################
+# remappings
+################################################################################
+
+# Ctrl-j = Ctrl-a
+escape ^Jj
+
+# V = vertical split and automatically switches to it
+bind 'V' eval "split -v" focus screen
+
+# S = split and automatically switches to it
+bind 'S' eval split focus screen
+
+# e = resizes windows to be equal
+bind 'e' resize =
+
+# resizes windows
+bind '+' resize +5
+bind '-' resize -5
+

@@ -1,0 +1,9 @@
+$include /etc/inputrc
+
+# auto-completion
+set completion-ignore-case on
+set show-all-if-ambiguous on
+
+# / at end of directories
+set mark-directories on
+set mark-symlinked-directories on
