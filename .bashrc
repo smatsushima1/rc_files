@@ -36,7 +36,7 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias gs='git stash'
 alias gacm='git add -A && git commit -m'
-alias gpp='git push && git stats'
+alias gpp='git push && git status'
 alias gitkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 
 # Functions
