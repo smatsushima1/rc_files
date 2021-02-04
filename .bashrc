@@ -54,6 +54,8 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias gitkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
+alias gacm='git add -A && git commit -m'
+alias gs='git stash'
 
 ################################################################################
 #functions
