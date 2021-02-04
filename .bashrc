@@ -1,3 +1,6 @@
+# To source this from .bashrc from home directory, input:
+# source [PATH_TO_THIS_FILE]
+
 # Source global definitions
 #if [ -f /etc/bashrc ]
 #    then . /etc/bashrc

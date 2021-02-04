@@ -1,5 +1,5 @@
 " To source this file from your default .vimrc, input:
-" :source [PATH_TO_VIMRC]
+" :source [PATH_TO_THIS_FILE] 
 "
 " To install Vim 8.0 from github:
 " git clone https://github.com/vim/vim.git
@@ -72,10 +72,10 @@ nnoremap <c-space> <esc>
 vnoremap <c-space> <esc>
 inoremap <c-space> <esc>
 
-# For certain editors, this works
-# nnoremap <nul> <esc>
-# vnoremap <nul> <esc>
-# inoremap <nul> <esc>
+" For certain editors, this works
+" nnoremap <nul> <esc>
+" vnoremap <nul> <esc>
+" inoremap <nul> <esc>
 
 " hjkl moves with each character, not line, in normal mode
 nnoremap j gj
