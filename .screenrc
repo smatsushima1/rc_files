@@ -1,14 +1,8 @@
-################################################################################
-# modifications
-################################################################################
-
-# selects panes with mouse
+# Modifications
+# Selects panes with mouse
 mousetrack on
 
-################################################################################
-# remappings
-################################################################################
-
+# Remappings
 # Ctrl-j = Ctrl-a
 escape ^Jj
 
@@ -21,7 +15,7 @@ bind 'S' eval split focus screen
 # e = resizes windows to be equal
 bind 'e' resize =
 
-# resizes windows
+# Resizes windows
 bind '+' resize +5
 bind '-' resize -5
 
