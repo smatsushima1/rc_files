@@ -28,6 +28,7 @@ export HISTSIZE=500
 PS1="\[\033[1;32m\]\w $ \[\033[0m\]"
 
 # Aliases
+alias c="clear"
 alias l="ls -Ahlv --group-directories-first --color=auto"
 alias ..="cd .."
 alias v="vim"
