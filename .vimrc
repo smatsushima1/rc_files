@@ -1,11 +1,14 @@
-" to install Vim 8.0 from github:
+" To source this file from your default .vimrc, input:
+" :source [PATH_TO_VIMRC]
+"
+" To install Vim 8.0 from github:
 " git clone https://github.com/vim/vim.git
 " cd vim
 " configure
 " (install dependencies as needed, usually 'yum install -y ncurses-devel')
 " make
 " make install
-
+"
 " Vundle
 " https://github.com/VundleVim/Vundle.vim
 " 
@@ -13,9 +16,10 @@
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " 
 " To add plugins:
-" - type plugin name after 'call vundle#begin()' but before 'call vundle#end()
-" - exit out, then re-edit .vimrc again
-" - type ':BundleInstall' to see if package was added
+" - Type plugin name after 'call vundle#begin()' but before 'call vundle#end()
+" - Exit out, then re-edit .vimrc again
+" - Type ':BundleInstall' to see if package was added
+
 set nocompatible                  " let vim not act like vi
 filetype off
 "set rtp+=~/.vim/bundle/Vundle.vim
@@ -64,9 +68,14 @@ set viminfo='500               " remembers 500 vim commands
 
 " Remappings
 " c-space for escape
-nmap <c-space> <esc>
-vmap <c-space> <esc>
-imap <c-space> <esc>
+nnoremap <c-space> <esc>
+vnoremap <c-space> <esc>
+inoremap <c-space> <esc>
+
+# For certain editors, this works
+# nnoremap <nul> <esc>
+# vnoremap <nul> <esc>
+# inoremap <nul> <esc>
 
 " hjkl moves with each character, not line, in normal mode
 nnoremap j gj
