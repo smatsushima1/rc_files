@@ -1,0 +1,39 @@
+#!/bin/bash
+
+read -p 'Enter username: ' a
+
+# Clean-up
+yum clean all
+yum update
+
+# Vim
+if [ ! -d /home/$a/git ]
+then mkdir /home/$a/git
+fi
+
+yum install -y ncurses-devel*
+git clone git@github.com:vim/vim.git ~/git
+./configure
+make
+make install
+
+# tmux
+yum install -y gcc libevent-devel* ncurses-devel*
+wget https://github.com/tmux/tmux/releases/download/2.5/tmux-2.5.tar.gz -P ~/rpm
+tar -xzf ~/rpm/tmux*
+cd tmux*
+./configure
+make
+
+# Chrome
+yum install -y libXScrnSaver*
+
+# r
+if [ ! -d ~/rpm ]
+then mkdir ~/rpm
+fi
+
+yum install -y R-core-devel.x86_64 java-9-openjdk.x86_64
+wget https://download1.rstudio.org/rstudio-1.0.143-x86_64.rpm -P ~/rpm
+yum localinstall -y ~/rpm/rstudio-1.0.143-x86_64.rpm
+

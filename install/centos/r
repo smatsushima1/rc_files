@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Check for rpm directory
+if [ ! -d ~/rpm ]
+then mkdir ~/rpm
+fi
+
+# Dependencies
+# https://superuser.com/questions/841270/installing-r-on-rhel-7
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/texinfo-tex-5.1-4.el7.x86_64.rpm -P ~/rpm
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/texlive-epsf-doc-svn21461.2.7.4-38.el7.noarch.rpm -P ~/rpm
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/texlive-epsf-svn21461.2.7.4-38.el7.noarch.rpm -P ~/rpm
+
+yum localinstall -y ~/rpm/texinfo-tex-5.1-4.el7.x86_64.rpm
+yum localinstall -y ~/rpm/texlive-epsf-doc-svn21461.2.7.4-38.el7.noarch.rpm
+yum localinstall -y ~/rpm/texlive-epsf-svn21461.2.7.4-38.el7.noarch.rpm
+
+# r and rstudio
+yum install -y R
+wget https://download1.rstudio.org/rstudio-1.0.143-x86_64.rpm -P ~/rpm
+yum localinstall -y ~/rpm/rstudio-1.0.143-x86_64.rpm
+

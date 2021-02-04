@@ -1,0 +1,15 @@
+#!/bin/bash
+
+read -p 'Enter username: ' a
+
+# Vim
+if [ ! -d /home/$a/git ]
+then mkdir /home/$a/git
+fi
+
+yum install -y ncurses-devel*
+git clone git@github.com:vim/vim.git ~/git
+./configure
+make
+make install
+
