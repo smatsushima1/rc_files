@@ -142,3 +142,19 @@ vnoremap gB :'<,'>:w !python3<cr>
 " Run python3 for the current file
 "command P3 :!python3 %:p
 
+" Functions
+" Create titles surrounded by comment blocks
+function CT(wrd, den)
+  let wstr = ' ' . a:wrd . ' '
+  let wlen = len(wstr)
+  let wnum = 80 - wlen
+  let wnum = wnum/2
+  let fstr = repeat(a:den, wnum) . wstr . repeat(a:den, wnum)
+  call setline('.', fstr)
+endfunction
+
+
+
+
+
+

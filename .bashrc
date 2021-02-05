@@ -90,6 +90,19 @@ gdone () {
   echo
 }
 
+# This is such a pointless function; no idea why I tried to write it
+# It basically prints the comment titles surrounded by comment blocks
+# I'd rather let vim do it...
+# comtitle () {
+#   new_str=" $1 "
+#   num=${#new_str}
+#   num=$((80 - num))
+#   sides=$((num/2))
+#   sides=$(seq "${sides}" | awk '{printf "#"}')
+#   
+#   printf "$sides $1 $sides\n"
+# }
+
 # Start tmux automatically
 # https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login
 #[[ $- != *i* ]] && return
