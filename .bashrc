@@ -97,7 +97,12 @@ gacp () {
   echo
   read -p "Enter commit message: " message
   echo
-  git add -A && git commit -m "$message" && git push && git status
+  if [ ${#message} -eq 0 ]
+    echo "Nothing inputted - exiting..."
+    return 1
+  else
+    git add -A && git commit -m "$message" && git push && git status
+  fi
 }
 
 # This is such a pointless function; no idea why I tried to write it
