@@ -49,12 +49,13 @@ alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 # Add all files, commit, and push
 gdone () {
   echo
-  echo "####################### CHECK IF STASHES ARE APPLIED #####################"
+  echo "####################### CHECK IF GIT PULL IS REQUIRED ####################"
   if git fetch -v --dry-run 2>&1 | grep -q .*'up to date'.*
   then
-    echo "No changes detected upstream - proceeding with code..."
+    echo "No changes detected upstream..."
   else
     echo "Perform a git pull first!"
+    echo
     return 1
   fi
   echo
@@ -71,7 +72,7 @@ gdone () {
   echo "###################### GIT STASH APPLY AND GIT ADD ######################"
   git stash apply
   git add -A
-  shopt -s lastpipe
+  #shopt -s lastpipe
   echo
   echo "############################## GIT COMMIT ##############################"
   read -p "Enter commit message: " message
