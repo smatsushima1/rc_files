@@ -49,7 +49,7 @@ alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 # Add all files, commit, and push
 gdone () {
   echo
-  echo "####################### CHECK IF GIT PULL IS REQUIRED ####################"
+  echo "######################## CHECK IF GIT PULL IS REQUIRED ########################"
   if git fetch -v --dry-run 2>&1 | grep -q .*'up to date'.*
   then
     echo "No changes detected upstream..."
@@ -60,7 +60,7 @@ gdone () {
     return 1
   fi
   echo
-  echo "####################### CHECK IF STASHES ARE APPLIED #####################"
+  echo "######################### CHECK IF STASHES ARE APPLIED #########################"
   if [ $(git stash list | wc -l) -eq 0 ] 
   then
     echo "Stash your changes first before proceeding!"
@@ -71,20 +71,20 @@ gdone () {
     echo
   fi
   echo
-  echo "###################### GIT STASH APPLY AND GIT ADD ######################"
+  echo "######################### GIT STASH APPLY AND GIT ADD #########################"
   git stash apply
   git add -A
   shopt -s lastpipe
   echo
-  echo "############################## GIT COMMIT ##############################"
+  echo "################################## GIT COMMIT ##################################"
   read -p "Enter commit message: " message
   echo
   git commit -m "$message"
   echo
-  echo "############################## GIT PUSH ##############################"
+  echo "################################### GIT PUSH ###################################"
   git push
   echo
-  echo "################### GIT STATUS AND GIT STASH CLEAR ###################"
+  echo "######################## GIT STATUS AND GIT STASH CLEAR ########################"
   git status
   git stash clear
   echo

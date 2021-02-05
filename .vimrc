@@ -150,7 +150,7 @@ function CT(wrd, den)
   let wnum = 80 - wlen
   let wnum = wnum/2
   let fstr = repeat(a:den, wnum) . wstr . repeat(a:den, wnum)
-  call setline('.', fstr)
+  call setline('.', getline('.') . fstr)
 endfunction
 
 
