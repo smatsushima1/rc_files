@@ -62,7 +62,6 @@ gdone () {
     echo
     return 1
   fi
-  echo
   echo "######################### CHECK IF STASHES ARE APPLIED #########################"
   if [ $(git stash list | wc -l) -eq 0 ] 
   then
@@ -73,7 +72,6 @@ gdone () {
     echo "Stashes are applied, function will proceed..."
     echo
   fi
-  echo
   echo "######################### GIT STASH APPLY AND GIT ADD #########################"
   git stash apply
   git add -A
