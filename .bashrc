@@ -35,10 +35,11 @@ alias v="vim"
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
+alias ga='git add'
 alias gs='git stash'
 alias gacm='git add -A && git commit -m'
-alias gpp='git push && git status'
-alias gitkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
+alias gps='git push && git status'
+alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 
 # Functions
 # List all functions: declare -f 
@@ -49,7 +50,8 @@ alias gitkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 gdone () {
   echo
   echo "####################### CHECK IF STASHES ARE APPLIED #####################"
-  if git fetch -v --dry-run 2>&1 | grep -q .*'up to date'.*; then
+  if git fetch -v --dry-run 2>&1 | grep -q .*'up to date'.*
+  then
     echo "No changes detected upstream - proceeding with code..."
   else
     echo "Perform a git pull first!"
