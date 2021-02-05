@@ -88,7 +88,7 @@ gdone () {
   git status
   git stash clear
   echo
-}
+} # making changes
 
 gacp () {
   echo
