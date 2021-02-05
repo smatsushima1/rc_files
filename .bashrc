@@ -49,6 +49,14 @@ alias gitkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 gdone () {
   echo
   echo "####################### CHECK IF STASHES ARE APPLIED #####################"
+  if git fetch -v --dry-run 2>&1 | grep -q .*'up to date'.*; then
+    echo "No changes detected upstream - proceeding with code..."
+  else
+    echo "Perform a git pull first!"
+    return 1
+  fi
+  echo
+  echo "####################### CHECK IF STASHES ARE APPLIED #####################"
   if [ $(git stash list | wc -l) -eq 0 ] 
   then
     echo "Stash your changes first before proceeding!"
