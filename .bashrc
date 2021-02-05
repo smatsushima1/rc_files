@@ -76,10 +76,12 @@ gdone () {
   git stash apply
   git add -A
   shopt -s lastpipe
+  echo
   echo "################################## GIT COMMIT ##################################"
   read -p "Enter commit message: " message
   echo
   git commit -m "$message"
+  echo
   echo "################################### GIT PUSH ###################################"
   git push
   echo "######################## GIT STATUS AND GIT STASH CLEAR ########################"
