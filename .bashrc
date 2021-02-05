@@ -53,6 +53,7 @@ gdone () {
   if git fetch -v --dry-run 2>&1 | grep -q .*'up to date'.*
   then
     echo "No changes detected upstream..."
+    echo
   else
     echo "Perform a git pull first!"
     echo
@@ -67,12 +68,13 @@ gdone () {
     return 1
   else
     echo "Stashes are applied - function will proceed..."
+    echo
   fi
   echo
   echo "###################### GIT STASH APPLY AND GIT ADD ######################"
   git stash apply
   git add -A
-  #shopt -s lastpipe
+  shopt -s lastpipe
   echo
   echo "############################## GIT COMMIT ##############################"
   read -p "Enter commit message: " message
