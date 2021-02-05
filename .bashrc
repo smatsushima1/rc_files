@@ -98,6 +98,7 @@ gacp () {
   read -p "Enter commit message: " message
   echo
   if [ ${#message} -eq 0 ]
+  then
     echo "Nothing inputted - exiting..."
     return 1
   else
