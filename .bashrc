@@ -91,7 +91,8 @@ gdone () {
   echo
 }
 
-gacp () {
+# git add, stash, commit, and push
+gascp () {
   echo
   read -p "Enter commit message: " message
   echo
