@@ -70,7 +70,7 @@ gdone () {
     echo
     return 1
   else
-    echo "Stashes are applied - function will proceed..."
+    echo "Stashes are applied, function will proceed..."
     echo
   fi
   echo
@@ -99,7 +99,7 @@ gacp () {
   echo
   if [ ${#message} -eq 0 ]
   then
-    echo "Nothing inputted - exiting..."
+    echo "Nothing inputted, exiting..."
     return 1
   else
     git add -A && git commit -m "$message" && git push && git status
