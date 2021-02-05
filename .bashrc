@@ -37,6 +37,9 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias ga='git add'
 alias gs='git stash'
+alias gsa='gs apply'
+alias gsl='gs list'
+alias gsc='gs clear'
 alias gacm='git add -A && git commit -m'
 alias gps='git push && git status'
 alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
@@ -45,7 +48,7 @@ alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 # List all functions: declare -f 
 # Remove function: unset -f [FUNCTION]
 
-# New workflow = `git stash` to store all changes, then `gdone`
+# New workflow = gs to store all changes, then gdone
 # Add all files, commit, and push
 gdone () {
   echo
@@ -88,6 +91,13 @@ gdone () {
   git status
   git stash clear
   echo
+}
+
+gacp () {
+  echo
+  read -p "Enter commit message: " message
+  echo
+  git add -A && git commit -m "$message" && git push && git status
 }
 
 # This is such a pointless function; no idea why I tried to write it
