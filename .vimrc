@@ -144,7 +144,7 @@ vnoremap gB :'<,'>:w !python3<cr>
 
 " Functions
 " Create titles surrounded by comment blocks
-function CT(wrd, den)
+function CTi(wrd, den)
   let wstr = ' ' . a:wrd . ' '
   let wlen = len(wstr)
   let wnum = 80 - wlen
