@@ -84,11 +84,12 @@ gdone () {
   echo
   echo "################################### GIT PUSH ###################################"
   git push
+  echo
   echo "######################## GIT STATUS AND GIT STASH CLEAR ########################"
   git status
   git stash clear
   echo
-} # making changes
+}
 
 gacp () {
   echo
