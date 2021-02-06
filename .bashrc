@@ -36,11 +36,13 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias ga='git add'
+alias gaa='ga -A'
 alias gs='git stash'
 alias gsa='gs apply'
 alias gsl='gs list'
 alias gsc='gs clear'
-alias gacm='git add -A && git commit -m'
+alias gcm='git commit -m'
+alias gacm='gaa && gs && gsa && gcm'
 alias gps='git push && git status'
 alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 
@@ -101,7 +103,7 @@ gascp () {
     echo "Nothing inputted, exiting..."
     return 1
   else
-    git add -A && git commit -m "$message" && git push && git status
+    gaa && gs && gsa && git commit -m "$message" && git push && git status
   fi
 }
 
