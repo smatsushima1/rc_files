@@ -45,7 +45,7 @@ alias gcm='git commit -m'
 alias gacm='gaa && gs && gsa && gcm'
 alias gps='git push && git status'
 alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
-alias gcomm_help='gitk --all $( git fsck --no-reflog | awk "/dangling commit/ {print $3}" )'
+alias gcomm_help="gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )"
 
 # Functions
 # List all functions: declare -f 
@@ -104,9 +104,13 @@ gascp () {
     echo "Nothing inputted, exiting..."
     return 1
   else
-    gaa && gs && gsa && git commit -m "$message" && git push && git status
+    gaa; git commit -m "$message"; git push; git status
   fi
 }
+
+# shows every commit ever
+# 
+
 
 # This is such a pointless function; no idea why I tried to write it
 # It basically prints the comment titles surrounded by comment blocks
