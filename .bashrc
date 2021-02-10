@@ -107,6 +107,12 @@ gascp () {
   fi
 }
 
+# show all git commits ever
+# https://stackoverflow.com/questions/89332/how-to-recover-a-dropped-stash-in-git
+gitk_help() {
+  gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
+}
+
 # This is such a pointless function; no idea why I tried to write it
 # It basically prints the comment titles surrounded by comment blocks
 # I'd rather let vim do it...
