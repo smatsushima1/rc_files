@@ -45,6 +45,7 @@ alias gcm='git commit -m'
 alias gacm='gaa && gs && gsa && gcm'
 alias gps='git push && git status'
 alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
+alias gcomm_help='gitk --all $( git fsck --no-reflog | awk "/dangling commit/ {print $3}" )'
 
 # Functions
 # List all functions: declare -f 
