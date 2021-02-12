@@ -180,6 +180,7 @@ vnoremap gB :'<,'>:w !python3<cr>
 " Run python3 for the current file
 "command P3 :!python3 %:p
 
+
 """""""""""""""""""""""""""""""""" Functions """"""""""""""""""""""""""""""""""
 " Create titles surrounded by comment blocks
 function CTi(wrd, del)
