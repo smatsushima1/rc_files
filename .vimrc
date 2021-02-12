@@ -49,13 +49,13 @@ filetype plugin on
 filetype indent on
 
 " Sets tabs to spaces in insert mode
-" Sets tabs to 2 spaces
-" Sets shifts to 2 spaces
+" Sets tabs to 4 spaces
+" Sets shifts to 4 spaces
 " Tabs get deleted as tabs, not spaces
 set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 " Shows number of lines on left
 " Shows line where cursor is on
@@ -134,25 +134,18 @@ inoremap <c-k> <up>
 inoremap <c-l> <right>
 
 " ZA = save and quit-all
-nnoremap ZA :wqa<CR>
-
 " ZS = save-all
-nnoremap ZS :wa<CR>
-
 " ZX = quit without save-all
+nnoremap ZA :wqa<CR>
+nnoremap ZS :wa<CR>
 nnoremap ZX :qa<CR>
 
 " Space acts like space in normal mode
-nnoremap <space> i<space><right><esc>
-
 " Backspace acts like backspace in normal mode
-nnoremap <bs> i<bs><right><esc>
-
 " Enter acts like enter in normal mode
+nnoremap <space> i<space><right><esc>
+nnoremap <bs> i<bs><right><esc>
 nnoremap <enter> i<enter><esc>
-
-" move <c-_> to <c-l>
-nmap <c-_> <C-l>
 
 " 10 move 10 spaces down and up
 nnoremap <c-j> 10j
@@ -176,6 +169,9 @@ vnoremap <c-l> $
 nnoremap gA :!python3 %:p<cr>
 vnoremap gB :'<,'>:w !python3<cr>
 
+" move <c-_> to <c-l>
+nmap <c-_> <C-l>
+
 " Custom commands
 " Run python3 for the current file
 "command P3 :!python3 %:p
@@ -184,12 +180,12 @@ vnoremap gB :'<,'>:w !python3<cr>
 """""""""""""""""""""""""""""""""" Functions """"""""""""""""""""""""""""""""""
 " Create titles surrounded by comment blocks
 function CTi(wrd, del)
-  let wstr = ' ' . a:wrd . ' '
-  let wlen = len(wstr)
-  let wnum = 80 - wlen
-  let wnum = wnum/2
-  let fstr = repeat(a:del, wnum) . wstr . repeat(a:del, wnum)
-  call setline('.', fstr)
+    let wstr = ' ' . a:wrd . ' '
+    let wlen = len(wstr)
+    let wnum = 80 - wlen
+    let wnum = wnum/2
+    let fstr = repeat(a:del, wnum) . wstr . repeat(a:del, wnum)
+    call setline('.', fstr)
 endfunction
 
 

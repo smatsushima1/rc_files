@@ -53,77 +53,77 @@ alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 # New workflow = gs to store all changes, then gdone
 # Add all files, commit, and push
 gdone () {
-  echo
-  echo "######################## CHECK IF GIT PULL IS REQUIRED ########################"
-  if git fetch -v --dry-run 2>&1 | grep -q .*'up to date'.*
-  then
-    echo "No changes detected upstream..."
     echo
-  else
-    echo "Perform a git pull first!"
+    echo "######################## CHECK IF GIT PULL IS REQUIRED ########################"
+    if git fetch -v --dry-run 2>&1 | grep -q .*'up to date'.*
+    then
+        echo "No changes detected upstream..."
+        echo
+    else
+        echo "Perform a git pull first!"
+        echo
+        return 1
+    fi
+    echo "######################### CHECK IF STASHES ARE APPLIED #########################"
+    if [ $(git stash list | wc -l) -eq 0 ] 
+    then
+        echo "Stash your changes first before proceeding!"
+        echo
+        return 1
+    else
+        echo "Stashes are applied, function will proceed..."
+        echo
+    fi
+    echo "######################### GIT STASH APPLY AND GIT ADD #########################"
+    git stash apply
+    git add -A
+    shopt -s lastpipe
     echo
-    return 1
-  fi
-  echo "######################### CHECK IF STASHES ARE APPLIED #########################"
-  if [ $(git stash list | wc -l) -eq 0 ] 
-  then
-    echo "Stash your changes first before proceeding!"
+    echo "################################## GIT COMMIT ##################################"
+    read -p "Enter commit message: " message
     echo
-    return 1
-  else
-    echo "Stashes are applied, function will proceed..."
+    git commit -m "$message"
     echo
-  fi
-  echo "######################### GIT STASH APPLY AND GIT ADD #########################"
-  git stash apply
-  git add -A
-  shopt -s lastpipe
-  echo
-  echo "################################## GIT COMMIT ##################################"
-  read -p "Enter commit message: " message
-  echo
-  git commit -m "$message"
-  echo
-  echo "################################### GIT PUSH ###################################"
-  git push
-  echo
-  echo "######################## GIT STATUS AND GIT STASH CLEAR ########################"
-  git status
-  git stash clear
-  echo
+    echo "################################### GIT PUSH ###################################"
+    git push
+    echo
+    echo "######################## GIT STATUS AND GIT STASH CLEAR ########################"
+    git status
+    git stash clear
+    echo
 }
 
 # git add, commit, and push
 gacp () {
-  echo
-  read -p "Enter commit message: " message
-  echo
-  if [ ${#message} -eq 0 ]
-  then
-    echo "Nothing inputted, exiting..."
-    return 1
-  else
-    gaa; git commit -m "$message"; git push; git status
-  fi
+    echo
+    read -p "Enter commit message: " message
+    echo
+    if [ ${#message} -eq 0 ]
+    then
+        echo "Nothing inputted, exiting..."
+        return 1
+    else
+        gaa; git commit -m "$message"; git push; git status
+    fi
 }
 
 # show all git commits ever
 # https://stackoverflow.com/questions/89332/how-to-recover-a-dropped-stash-in-git
 gitk_help() {
-  gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
+    gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
 }
 
 # This is such a pointless function; no idea why I tried to write it
 # It basically prints the comment titles surrounded by comment blocks
 # I'd rather let vim do it...
 # comtitle () {
-#   new_str=" $1 "
-#   num=${#new_str}
-#   num=$((80 - num))
-#   sides=$((num/2))
-#   sides=$(seq "${sides}" | awk '{printf "#"}')
+#     new_str=" $1 "
+#     num=${#new_str}
+#     num=$((80 - num))
+#     sides=$((num/2))
+#     sides=$(seq "${sides}" | awk '{printf "#"}')
 #   
-#   printf "$sides $1 $sides\n"
+#     printf "$sides $1 $sides\n"
 # }
 
 # Start tmux automatically
