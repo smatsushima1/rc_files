@@ -1,14 +1,16 @@
 " To source this file from your default .vimrc, input:
 " :source [PATH_TO_THIS_FILE] 
-"
-" To install Vim 8.0 from github:
+
+" To install Vim from github:
 " git clone https://github.com/vim/vim.git
 " cd vim
 " configure
 " (install dependencies as needed, usually 'yum install -y ncurses-devel')
 " make
 " make install
-"
+
+
+""""""""""""""""""""""""""""""""""" Plugins """""""""""""""""""""""""""""""""""
 " Vundle
 " https://github.com/VundleVim/Vundle.vim
 " 
@@ -20,53 +22,89 @@
 " - Exit out, then re-edit .vimrc again
 " - Type ':BundleInstall' to see if package was added
 
-set nocompatible                  " let vim not act like vi
+" Let vim not act like vi
+set nocompatible                  
 filetype off
 "set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()               " plugins must follow this, not before
-"
-"Plugin 'VundleVim/Vundle.vim'     " let Vundle manage Vundle, required
-"Plugin 'vim-airline/vim-airline'  " status bar on bottom of vim
-"Plugin 'jalvesaq/Nvim-R'          " work with R from vim
-"
+
+" Plugins must follow this, not before
+"call vundle#begin()
+
+" Let Vundle manage Vundle, required
+" Status bar on bottom of vim
+" Work with R from vim
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'jalvesaq/Nvim-R'
 "call vundle#end()
 
-" Modifications
-syntax enable                  " allows text highlighting
-filetype plugin on             " allows some vim features to work
-filetype indent on             " automatically indent based on file syntax
 
-set expandtab                  " sets tabs to spaces in insert mode
-set tabstop=2                  " sets tabs to 4 spaces
-set shiftwidth=2               " sets shifts to 4 spaces
-set softtabstop=2              " tabs get deleted as tabs, not spaces
+"""""""""""""""""""""""""""""""" Modifications """"""""""""""""""""""""""""""""
+" Allows text highlighting
+syntax enable
 
-set number                     " shows number of lines on left
-set cursorline                 " shows line where cursor is on
+" Allows some vim features to work
+" Automatically indent based on file syntax
+filetype plugin on
+filetype indent on
 
-set path+=**                   " searches down in subdirectories
-set wildmenu                   " shows matches for auto-completion
-set ignorecase                 " ignores case when searching
-set hlsearch                   " highlight matches as searching
-set incsearch                  " matches while typing
+" Sets tabs to spaces in insert mode
+" Sets tabs to 2 spaces
+" Sets shifts to 2 spaces
+" Tabs get deleted as tabs, not spaces
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
-set nobackup                   " no creation of ~ temp files
-set nowritebackup              " no creation of ~ temp files
-set noundofile                 " no creation of ~ temp files
+" Shows number of lines on left
+" Shows line where cursor is on
+" Sets mouse support
+" Show cursor position in lower right corner
+" Shows commad in bottom
+" Font will brighten as if in dark background
+set number
+set cursorline
+set mouse=a
+set ruler
+set showcmd
+set background=dark            
 
-set mouse=a                    " sets mouse support
-set hidden                     " don't show hidden buffers in tabs
-set ruler                      " show cursor position in lower right corner
-set showcmd                    " shows commad in bottom
-set backspace=indent,eol,start " backspaces work as normal
-set showmatch                  " shows matching braces
-set sidescroll=10              " automatically scrolls 10 characters
-set background=dark            " font will brighten as if in dark background
-set linebreak                  " words don't get broken at end of line
-set foldcolumn=4               " shows folds in columns
-set viminfo='500               " remembers 500 vim commands
+" Searches down in subdirectories
+" Shows matches for auto-completion
+" Ignores case when searching
+" Ignores case when searching when combined with ignorecase
+" Highlight matches as searching
+" Matches while typing
+set path+=**
+set wildmenu
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
 
-" Remappings
+" No creation of ~ temp files
+set nobackup
+set nowritebackup              
+set noundofile
+
+" Don't show hidden buffers in tabs
+" Backspaces work as normal
+" Shows matching braces
+" Automatically scrolls 10 characters
+" Words don't get broken at end of line
+" Shows folds in columns
+" Remembers 500 vim commands
+set hidden
+set backspace=indent,eol,start
+set showmatch
+set sidescroll=10
+set linebreak
+set foldcolumn=4
+set viminfo='500
+
+
+"""""""""""""""""""""""""""""""""" Remappings """"""""""""""""""""""""""""""""""
 " c-space for escape
 nnoremap <c-space> <esc>
 vnoremap <c-space> <esc>
@@ -142,7 +180,7 @@ vnoremap gB :'<,'>:w !python3<cr>
 " Run python3 for the current file
 "command P3 :!python3 %:p
 
-" Functions
+"""""""""""""""""""""""""""""""""" Functions """"""""""""""""""""""""""""""""""
 " Create titles surrounded by comment blocks
 function CTi(wrd, del)
   let wstr = ' ' . a:wrd . ' '
