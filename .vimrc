@@ -186,9 +186,7 @@ function CommentTitles()
     let comm  = input('Enter comment character: ')
     call inputrestore()
     let wstr = ' ' . wrd . ' '
-    let wlen = len(wstr)
-    let wnum = 80 - wlen
-    let wnum = wnum/2
+    let wnum = (80 - len(wstr))/2
     let fstr = repeat(comm, wnum) . wstr . repeat(comm, wnum)
     call setline('.', fstr)
 endfunction
