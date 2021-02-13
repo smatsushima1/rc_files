@@ -32,11 +32,14 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
-  'ctrl-space': 'vim-mode-plus:activate-normal-mode'
-  'j': 'vim-mode-plus:move-down-screen'
-  'k': 'vim-mode-plus:move-up-screen'
-  'ctrl-h': 'vim-mode-plus:move-to-first-character-of-line'
-  'ctrl-l': 'vim-mode-plus:move-to-last-character-of-line'
+    'ctrl-space': 'vim-mode-plus:activate-normal-mode'
+    'j': 'vim-mode-plus:move-down-screen'
+    'k': 'vim-mode-plus:move-up-screen'
+    'ctrl-h': 'vim-mode-plus:move-to-first-character-of-line'
+    'ctrl-l': 'vim-mode-plus:move-to-last-character-of-line'
+    'shift-z shift-z': 'core:save'
+    'shift-z g': 'git-plus:add-and-commit-and-push'
+    'shift-z shift-g': 'git-plus:add-and-commit-and-push'
 
 'atom-text-editor.vim-mode-plus.insert-mode':
-  'ctrl-space': 'vim-mode-plus:activate-normal-mode'
+    'ctrl-space': 'vim-mode-plus:activate-normal-mode'
