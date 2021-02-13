@@ -106,14 +106,14 @@ set viminfo='500
 
 """""""""""""""""""""""""""""""""" Remappings """"""""""""""""""""""""""""""""""
 " c-space for escape
-nnoremap <c-space> <esc>
-vnoremap <c-space> <esc>
-inoremap <c-space> <esc>
+" nnoremap <c-space> <esc>
+" vnoremap <c-space> <esc>
+" inoremap <c-space> <esc>
 
 " For certain editors, this works
-" nnoremap <nul> <esc>
-" vnoremap <nul> <esc>
-" inoremap <nul> <esc>
+nnoremap <nul> <esc>
+vnoremap <nul> <esc>
+inoremap <nul> <esc>
 
 " hjkl moves with each character, not line, in normal mode
 nnoremap j gj
@@ -168,6 +168,7 @@ vnoremap <c-l> $
 " gB to run python off of current selection
 nnoremap gA :!python3 %:p<cr>
 vnoremap gB :'<,'>:w !python3<cr>
+nnoremap gC :call CommentTitles()<cr>
 
 " move <c-_> to <c-l>
 nmap <c-_> <C-l>
@@ -179,12 +180,16 @@ nmap <c-_> <C-l>
 
 """""""""""""""""""""""""""""""""" Functions """"""""""""""""""""""""""""""""""
 " Create titles surrounded by comment blocks
-function CTi(wrd, del)
-    let wstr = ' ' . a:wrd . ' '
+function CommentTitles()
+    call inputsave()
+    let wrd = input('Enter title: ')
+    let comm  = input('Enter comment character: ')
+    call inputrestore()
+    let wstr = ' ' . wrd . ' '
     let wlen = len(wstr)
     let wnum = 80 - wlen
     let wnum = wnum/2
-    let fstr = repeat(a:del, wnum) . wstr . repeat(a:del, wnum)
+    let fstr = repeat(comm, wnum) . wstr . repeat(comm, wnum)
     call setline('.', fstr)
 endfunction
 
