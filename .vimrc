@@ -1,5 +1,5 @@
 " To source this file from your default .vimrc, input:
-" source [PATH_TO_THIS_FILE] 
+" source [PATH_TO_THIS_FILE]
 
 " To install Vim from github:
 " git clone https://github.com/vim/vim.git
@@ -13,17 +13,17 @@
 """"""""""""""""""""""""""""""""""" Plugins """""""""""""""""""""""""""""""""""
 " Vundle
 " https://github.com/VundleVim/Vundle.vim
-" 
+"
 " To install:
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" 
+"
 " To add plugins:
 " - Type plugin name after 'call vundle#begin()' but before 'call vundle#end()
 " - Exit out, then re-edit .vimrc again
 " - Type ':PluginInstall' to see if package was added
 
 " Let vim not act like vi
-set nocompatible                  
+set nocompatible
 filetype off
 
 " Plugins must follow this, not before
@@ -81,7 +81,7 @@ set incsearch
 
 " No creation of ~ temp files
 set nobackup
-set nowritebackup              
+set nowritebackup
 set noundofile
 
 " Don't show hidden buffers in tabs
@@ -162,9 +162,9 @@ vnoremap <c-l> $
 
 " gA to run python off of current file
 " gB to run python off of current selection
-nnoremap gA :!python3 %:p<cr>
-vnoremap gB :'<,'>:w !python3<cr>
-nnoremap gC :call CommentTitles()<cr>
+nnoremap Zp :!python3 %:p<cr>
+vnoremap ZP :'<,'>:w !python3<cr>
+nnoremap Zc :call CommentTitles()<cr>
 
 " move <c-_> to <c-l>
 nmap <c-_> <C-l>
@@ -186,5 +186,3 @@ function CommentTitles()
     let fstr = repeat(comm, wnum) . wstr . repeat(comm, wnum)
     call setline('.', fstr)
 endfunction
-
-
