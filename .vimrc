@@ -20,23 +20,20 @@
 " To add plugins:
 " - Type plugin name after 'call vundle#begin()' but before 'call vundle#end()
 " - Exit out, then re-edit .vimrc again
-" - Type ':BundleInstall' to see if package was added
+" - Type ':PluginInstall' to see if package was added
 
 " Let vim not act like vi
 set nocompatible                  
 filetype off
-"set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 
 " Plugins must follow this, not before
-"call vundle#begin()
-
-" Let Vundle manage Vundle, required
-" Status bar on bottom of vim
-" Work with R from vim
-"Plugin 'VundleVim/Vundle.vim'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'jalvesaq/Nvim-R'
-"call vundle#end()
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'alvan/vim-closetag'
+Plugin 'flazz/vim-colorschemes'
+call vundle#end()
 
 
 """""""""""""""""""""""""""""""" Modifications """"""""""""""""""""""""""""""""
@@ -143,7 +140,7 @@ nnoremap ZX :qa<CR>
 " Space acts like space in normal mode
 " Backspace acts like backspace in normal mode
 " Enter acts like enter in normal mode
-nnoremap <space> i<space><right><esc>
+"nnoremap <space> i<space><right><esc>
 nnoremap <bs> i<bs><right><esc>
 nnoremap <enter> i<enter><esc>
 

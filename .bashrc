@@ -28,13 +28,13 @@ export HISTSIZE=500
 PS1="\[\033[1;32m\]\w $ \[\033[0m\]"
 
 # Aliases
-alias c="clear"
-alias l="ls -Ahlv --group-directories-first --color=auto"
-alias ..="cd .."
-alias v="vim"
-alias grep="grep --color=auto"
-alias egrep="egrep --color=auto"
-alias fgrep="fgrep --color=auto"
+alias c='clear'
+alias l='ls -Ahlv --group-directories-first --color=auto'
+alias ..='cd ..'
+alias v='vim'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 alias ga='git add'
 alias gaa='ga -A'
 alias gs='git stash'
@@ -45,6 +45,7 @@ alias gcm='git commit -m'
 alias gacm='gaa && gs && gsa && gcm'
 alias gps='git push && git status'
 alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
+alias tm='tmux new-session \; split-window -v \;
 
 # Functions
 # List all functions: declare -f 
