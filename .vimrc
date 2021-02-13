@@ -1,5 +1,5 @@
 " To source this file from your default .vimrc, input:
-" :source [PATH_TO_THIS_FILE] 
+" source [PATH_TO_THIS_FILE] 
 
 " To install Vim from github:
 " git clone https://github.com/vim/vim.git
@@ -25,15 +25,15 @@
 " Let vim not act like vi
 set nocompatible                  
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
 
 " Plugins must follow this, not before
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'alvan/vim-closetag'
-Plugin 'flazz/vim-colorschemes'
-call vundle#end()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" Plugin 'VundleVim/Vundle.vim'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'alvan/vim-closetag'
+" Plugin 'flazz/vim-colorschemes'
+" call vundle#end()
 
 
 """""""""""""""""""""""""""""""" Modifications """"""""""""""""""""""""""""""""
@@ -59,13 +59,12 @@ set softtabstop=4
 " Sets mouse support
 " Show cursor position in lower right corner
 " Shows commad in bottom
-" Font will brighten as if in dark background
 set number
 set cursorline
 set mouse=a
 set ruler
 set showcmd
-set background=dark            
+set colorcolumn=80
 
 " Searches down in subdirectories
 " Shows matches for auto-completion
@@ -103,14 +102,14 @@ set viminfo='500
 
 """""""""""""""""""""""""""""""""" Remappings """"""""""""""""""""""""""""""""""
 " c-space for escape
-" nnoremap <c-space> <esc>
-" vnoremap <c-space> <esc>
-" inoremap <c-space> <esc>
+nnoremap <c-space> <esc>
+vnoremap <c-space> <esc>
+inoremap <c-space> <esc>
 
 " For certain editors, this works
-nnoremap <nul> <esc>
-vnoremap <nul> <esc>
-inoremap <nul> <esc>
+" nnoremap <nul> <esc>
+" vnoremap <nul> <esc>
+" inoremap <nul> <esc>
 
 " hjkl moves with each character, not line, in normal mode
 nnoremap j gj

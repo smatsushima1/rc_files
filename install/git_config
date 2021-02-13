@@ -6,4 +6,3 @@ read -p "Enter email: " b
 git config --global user.name "$a"
 git config --global user.email "$b"
 git config --global push.default simple
-git config credential.helper 'cache --timeout=99999'

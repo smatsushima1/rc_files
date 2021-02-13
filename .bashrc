@@ -45,7 +45,7 @@ alias gcm='git commit -m'
 alias gacm='gaa && gs && gsa && gcm'
 alias gps='git push && git status'
 alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
-alias tm='tmux new-session \; split-window -v \;
+# alias tm='tmux new-session \; split-window -v \;'
 
 # Functions
 # List all functions: declare -f 
