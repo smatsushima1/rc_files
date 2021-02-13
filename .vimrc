@@ -160,10 +160,11 @@ vnoremap <c-h> 0
 nnoremap <c-l> $
 vnoremap <c-l> $
 
-" gA to run python off of current file
-" gB to run python off of current selection
-nnoremap Zp :!python3 %:p<cr>
-vnoremap ZP :'<,'>:w !python3<cr>
+" Zp to run python off of current file
+" ZP to run python off of current selection
+" Zc call function to make comment titles
+nnoremap Zp :!python %:p<cr>
+vnoremap ZP :'<,'>:w !python<cr>
 nnoremap Zc :call CommentTitles()<cr>
 
 " move <c-_> to <c-l>
