@@ -44,8 +44,9 @@ alias gsc='gs clear'
 alias gst='git status'
 alias gcm='git commit -m'
 alias gacm='gaa; gcm'
+alias gp='git push'
 alias gps='git push; git status'
-alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
+# alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 # alias tm='tmux new-session \; split-window -v \;'
 
 # Functions
@@ -138,6 +139,13 @@ gacp() {
 # https://stackoverflow.com/questions/89332/how-to-recover-a-dropped-stash-in-git
 gitk_help() {
     gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
+}
+
+# source the bashrc and return to previous location
+src() {
+    dir=$(pwd)
+    source ~/.bashrc
+    cd $dir
 }
 
 # This is such a pointless function; no idea why I tried to write it
