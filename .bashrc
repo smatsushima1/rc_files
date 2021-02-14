@@ -43,8 +43,8 @@ alias gsl='gs list'
 alias gsc='gs clear'
 alias gst='git status'
 alias gcm='git commit -m'
-alias gacm='gaa && gs && gsa && gcm'
-alias gps='git push && git status'
+alias gacm='gaa; gcm'
+alias gps='git push; git status'
 alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 # alias tm='tmux new-session \; split-window -v \;'
 
@@ -76,12 +76,11 @@ gdone() {
         echo 'Stashes are applied, function will proceed...'
         echo
     fi
-    echo '######################## `git stash apply` and `git add` #######################'
+    echo '############################### Apply All Stashes ##############################'
     gsa
-    gaa
     shopt -s lastpipe
     echo
-    echo '################################## `git commit` #################################'
+    echo '######################## `git add -A` and `git commit -m` #######################'
     read -p 'Enter commit message: ' message
     echo
     if [ ${#message} -eq 0 ]
@@ -89,7 +88,7 @@ gdone() {
         echo 'Nothing inputted, exiting...'
         return 1
     else
-        gcm "$message"
+        gacm "$message"
         echo
     fi
     echo '########################## `git push` and `git status` #########################'
@@ -113,10 +112,7 @@ gacp() {
         echo
         return 1
     fi
-    echo '################################## `git add -A` #################################'
-    gaa
-    echo
-    echo '################################ `git commit -m` ###############################'
+    echo '######################## `git add -A` and `git commit -m` #######################'
     read -p 'Enter commit message: ' message
     echo
     if [ ${#message} -eq 0 ]
@@ -124,7 +120,7 @@ gacp() {
         echo 'Nothing inputted, exiting...'
         return 1
     else
-        gcm "$message"
+        gacm "$message"
         echo
     fi
     echo '########################## `git push` and `git status` #########################'
