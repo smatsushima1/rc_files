@@ -41,6 +41,7 @@ alias gs='git stash'
 alias gsa='gs apply'
 alias gsl='gs list'
 alias gsc='gs clear'
+alias gst='git status'
 alias gcm='git commit -m'
 alias gacm='gaa && gs && gsa && gcm'
 alias gps='git push && git status'
@@ -53,59 +54,82 @@ alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 
 # New workflow = gs to store all changes, then gdone
 # Add all files, commit, and push
-gdone () {
+gdone() {
     echo
-    echo "######################## CHECK IF GIT PULL IS REQUIRED ########################"
+    echo '######################## Check if `git pull` is Required #######################'
     if git fetch -v --dry-run 2>&1 | grep -q .*'up to date'.*
     then
-        echo "No changes detected upstream..."
+        echo 'No changes detected upstream...'
         echo
     else
-        echo "Perform a git pull first!"
+        echo 'Perform a git pull first!'
         echo
         return 1
     fi
-    echo "######################### CHECK IF STASHES ARE APPLIED #########################"
+    echo '########################## Check if Stashes Are Applied #########################'
     if [ $(git stash list | wc -l) -eq 0 ] 
     then
-        echo "Stash your changes first before proceeding!"
+        echo 'Stash your changes first before proceeding!'
         echo
         return 1
     else
-        echo "Stashes are applied, function will proceed..."
+        echo 'Stashes are applied, function will proceed...'
         echo
     fi
-    echo "######################### GIT STASH APPLY AND GIT ADD #########################"
-    git stash apply
-    git add -A
+    echo '######################## `git stash apply` and `git add` #######################'
+    gsa
+    gaa
     shopt -s lastpipe
     echo
-    echo "################################## GIT COMMIT ##################################"
-    read -p "Enter commit message: " message
+    echo '################################## `git commit` #################################'
+    read -p 'Enter commit message: ' message
     echo
-    git commit -m "$message"
+    if [ ${#message} -eq 0 ]
+    then
+        echo 'Nothing inputted, exiting...'
+        return 1
+    else
+        gcm "$message"
+        echo
+    fi
+    echo '########################## `git push` and `git status` #########################'
+    gps
     echo
-    echo "################################### GIT PUSH ###################################"
-    git push
-    echo
-    echo "######################## GIT STATUS AND GIT STASH CLEAR ########################"
-    git status
-    git stash clear
+    echo '############################### Clear All Stashes ##############################'
+    gsc
     echo
 }
 
 # git add, commit, and push
-gacp () {
+gacp() {
     echo
-    read -p "Enter commit message: " message
+    echo '######################## Check if `git pull` is Required #######################'
+    if git fetch -v --dry-run 2>&1 | grep -q .*'up to date'.*
+    then
+        echo 'No changes detected upstream...'
+        echo
+    else
+        echo 'Perform a git pull first!'
+        echo
+        return 1
+    fi
+    echo '################################## `git add -A` #################################'
+    gaa
+    echo
+    echo '################################ `git commit -m` ###############################'
+    read -p 'Enter commit message: ' message
     echo
     if [ ${#message} -eq 0 ]
     then
-        echo "Nothing inputted, exiting..."
+        echo 'Nothing inputted, exiting...'
         return 1
     else
-        gaa; git commit -m "$message"; git push; git status
+        gcm "$message"
+        echo
     fi
+    echo '########################## `git push` and `git status` #########################'
+    gps
+    echo
 }
 
 # show all git commits ever
