@@ -19,6 +19,7 @@ fi
 
 # Paths and environment variables
 #export PATH="/home/user/anaconda3/bin:$PATH"
+#export PATH='C:/Program Files/PostgreSQL/13/bin:$PATH'
 
 # Expand history size
 export HISTFILESIZE=10000
@@ -50,7 +51,7 @@ alias gps='git push; git status'
 # alias tm='tmux new-session \; split-window -v \;'
 
 # Functions
-# List all functions: declare -f 
+# List all functions: declare -f
 # Remove function: unset -f [FUNCTION]
 
 # New workflow = gs to store all changes, then gdone
@@ -68,7 +69,7 @@ gdone() {
         return 1
     fi
     echo '########################## Check if Stashes Are Applied #########################'
-    if [ $(git stash list | wc -l) -eq 0 ] 
+    if [ $(git stash list | wc -l) -eq 0 ]
     then
         echo 'Stash your changes first before proceeding!'
         echo
@@ -157,7 +158,7 @@ src() {
 #     num=$((80 - num))
 #     sides=$((num/2))
 #     sides=$(seq "${sides}" | awk '{printf "#"}')
-#   
+#
 #     printf "$sides $1 $sides\n"
 # }
 
@@ -168,4 +169,3 @@ src() {
 
 # Gitkey
 #eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa
-
