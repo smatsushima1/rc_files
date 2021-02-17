@@ -13,17 +13,17 @@
 #      [EDIT_AS_NEEDED]
 
 ################################## Functions ##################################
-function g_add {& git add $args}
-function g_addA {& git add -A $args}
-function g_stash {& git stash $args}
-function g_stashA {& git stash apply $args}
-function g_stashL {& git stash list $args}
-function g_stashC {& git stash clear $args}
-function g_status {& git status $args}
-function g_commitM {& git commit -m $args}
-function g_addACM {& git add -A; git commit -m $args}
-function g_push {& git push $args}
-function g_pushSt {& git push; git status $args}
+function ga {& git add $args}
+function gaa {& git add -A $args}
+function gs {& git stash $args}
+function gsa {& git stash apply $args}
+function gsl {& git stash list $args}
+function gsc {& git stash clear $args}
+function gst {& git status $args}
+function gcme {& git commit -m $args}
+function gacm {& git add -A; git commit -m $args}
+function gpu {& git push $args}
+function gpst {& git push; git status $args}
 
 function gacp {
     write-output ''
@@ -43,14 +43,14 @@ function gacp {
         write-output 'Nothing inputted, exiting...'
         exit 1
     } else {
-        g_addACM $message
+        gacm $message
         write-output ''
     }
     write-output '################################### `git push` ##################################'
-    g_push
+    gpu
     write-output ''
     write-output '################################## `git status` #################################'
-    g_status
+    gst
     write-output ''
 }
 
@@ -60,17 +60,6 @@ set-alias l 'ls'
 set-alias .. 'cd..'
 set-alias np 'notepad'
 set-alias v 'C:\Program Files (x86)\Vim\vim81\vim.exe'
-set-alias ga g_add
-set-alias gaa g_addA
-set-alias gs g_stash
-set-alias gsa g_stashA
-set-alias gsl g_stashL
-set-alias gsc g_stashC
-set-alias gst g_status
-set-alias gcme g_commitM
-set-alias gacm g_addACM
-set-alias gpu g_push
-set-alias gpst g_pushSt
 
 ################################# Chocolatey ##################################
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
