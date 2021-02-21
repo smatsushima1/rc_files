@@ -136,7 +136,7 @@ gacp() {
     echo
 }
 
-# show all git commits ever
+# Show all git commits ever
 # https://stackoverflow.com/questions/89332/how-to-recover-a-dropped-stash-in-git
 gitk_help() {
     gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
@@ -147,6 +147,18 @@ src() {
     dir=$(pwd)
     source ~/.bashrc
     cd $dir
+}
+
+# Iniitialize database credentials
+dbInit() {
+    read -p 'Enter DB Name: ' dbn
+    read -p 'Enter DB Password: ' dbp
+    export DB_NAME=$dbn
+    export DB_PW=$dbp
+    echo
+    echo 'Here are the variables: '
+    printenv | grep --color=never DB_*
+    echo
 }
 
 # This is such a pointless function; no idea why I tried to write it
