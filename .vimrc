@@ -24,7 +24,7 @@
 
 " Let vim not act like vi
 set nocompatible
-filetype off
+filetype on
 
 " Plugins must follow this, not before
 " set rtp+=~/.vim/bundle/Vundle.vim
@@ -53,6 +53,8 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set autoindent
+set smartindent
 
 " Shows number of lines on left
 " Shows line where cursor is on

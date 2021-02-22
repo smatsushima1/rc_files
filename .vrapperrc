@@ -1,0 +1,40 @@
+
+set autoindent
+set smartindent
+
+"""""""""""""""""""""""""""""""""" Remappings """"""""""""""""""""""""""""""""""
+" For certain editors, this works
+nnoremap <c-space> <esc>
+vnoremap <c-space> <esc>
+inoremap <c-space> <esc>
+
+" Space acts like space in normal mode
+" Backspace acts like backspace in normal mode
+" Enter acts like enter in normal mode
+nnoremap <space> i<space><right><esc>
+nnoremap <bs> i<bs><right><esc>
+nnoremap <enter> i<enter><esc>
+
+" 10 move 10 spaces down and up
+nnoremap <c-j> 10j
+inoremap <c-j> 10j
+vnoremap <c-j> 10j
+
+nnoremap <c-k> 10k
+inoremap <c-k> 10k
+vnoremap <c-k> 10k
+
+" <c-h> = 0
+nnoremap <c-h> 0
+vnoremap <c-h> 0
+
+" <c-l> = $
+nnoremap <c-l> $
+vnoremap <c-l> $
+
+" move <c-_> to <c-l>
+nmap <c-_> <C-l>
+
+
+
+
