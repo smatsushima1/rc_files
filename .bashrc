@@ -151,12 +151,12 @@ src() {
 
 # Iniitialize database credentials
 dbInit() {
-    read -p 'Enter DB User: ' dbu
-    read -p 'Enter DB Name: ' dbn
-    read -p 'Enter DB Password: ' dbp
-    export DB_USER=$dbu
-    export DB_NAME=$dbn
-    export DB_PW=$dbp
+    read -p 'Enter PGUSER: ' dbu
+    read -p 'Enter PGDATABASE: ' dbn
+    read -p 'Enter PGPASSWORD: ' dbp
+    export PGUSER=$dbu
+    export PGDATABASE=$dbn
+    export PGPASSWORD=$dbp
     echo 'Done'
 }
 

@@ -67,7 +67,6 @@ set mouse=a
 set ruler
 set showcmd
 set colorcolumn=80
-set textwidth=80
 
 " Searches down in subdirectories
 " Shows matches for auto-completion
