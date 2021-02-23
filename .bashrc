@@ -151,14 +151,13 @@ src() {
 
 # Iniitialize database credentials
 dbInit() {
+    read -p 'Enter DB User: ' dbu
     read -p 'Enter DB Name: ' dbn
     read -p 'Enter DB Password: ' dbp
+    export DB_USER=$dbu
     export DB_NAME=$dbn
     export DB_PW=$dbp
-    echo
-    echo 'Here are the variables: '
-    printenv | grep --color=never DB_*
-    echo
+    echo 'Done'
 }
 
 # This is such a pointless function; no idea why I tried to write it
