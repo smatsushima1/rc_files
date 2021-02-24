@@ -2,7 +2,7 @@
 set autoindent
 set smartindent
 
-"""""""""""""""""""""""""""""""""" Remappings """"""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""" Remappings """""""""""""""""""""""""""""""""
 " For certain editors, this works
 nnoremap <c-space> <esc>
 vnoremap <c-space> <esc>
@@ -34,7 +34,5 @@ vnoremap <c-l> $
 
 " move <c-_> to <c-l>
 nmap <c-_> <C-l>
-
-
 
 
