@@ -1,3 +1,4 @@
+
 " To source this file from your default .vimrc, input:
 " source [PATH_TO_THIS_FILE]
 
@@ -147,11 +148,9 @@ nnoremap <enter> i<enter><esc>
 
 " 10 move 10 spaces down and up
 nnoremap <c-j> 10j
-inoremap <c-j> 10j
 vnoremap <c-j> 10j
 
 nnoremap <c-k> 10k
-inoremap <c-k> 10k
 vnoremap <c-k> 10k
 
 " <c-h> = 0
@@ -183,9 +182,12 @@ function CommentTitles()
     call inputsave()
     let wrd = input('Enter title: ')
     let comm  = input('Enter comment character: ')
+    let wdth  = input('Enter amount of character: ')
     call inputrestore()
     let wstr = ' ' . wrd . ' '
-    let wnum = (80 - len(wstr))/2
+    let wnum = (wdth - len(wstr))/2
     let fstr = repeat(comm, wnum) . wstr . repeat(comm, wnum)
     call setline('.', fstr)
 endfunction
+
+
