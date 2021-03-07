@@ -50,9 +50,11 @@ alias gps='git push; git status'
 # alias gkey='eval "$(ssh-agent -s)" && ssh-add /home/user/.ssh/github_rsa'
 # alias tm='tmux new-session \; split-window -v \;'
 
+
 # Functions
 # List all functions: declare -f
 # Remove function: unset -f [FUNCTION]
+
 
 # New workflow = gs to store all changes, then gdone
 # Add all files, commit, and push
@@ -104,6 +106,7 @@ gdone() {
     echo
 }
 
+
 # git add, commit, and push
 gacp() {
     echo
@@ -136,11 +139,27 @@ gacp() {
     echo
 }
 
+
+# git branch init
+gbi() {
+    bname=$1
+    if [ ${#bname} -eq 0 ]
+    then
+        echo 'Branch not specified. Exiting...'
+        return 1
+    else
+        git checkout -b $bname
+        git push --set-upstream origin $bname
+    fi
+}
+
+
 # Show all git commits ever
 # https://stackoverflow.com/questions/89332/how-to-recover-a-dropped-stash-in-git
 gitk_help() {
     gitk --all $( git fsck --no-reflog | awk '/dangling commit/ {print $3}' )
 }
+
 
 # source the bashrc and return to previous location
 src() {
@@ -148,6 +167,7 @@ src() {
     source ~/.bashrc
     cd $dir
 }
+
 
 # Iniitialize database credentials
 dbInit() {
