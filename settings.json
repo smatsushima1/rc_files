@@ -1,0 +1,17 @@
+// Ctrl+Shft+P, search for settings.json
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "editor.codeActionsOnSave": {
+    },
+    // Editor Settings
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "editor.fontSize": 12,
+    "terminal.integrated.fontSize": 12,
+    "editor.rulers": [80],
+    "security.workspace.trust.untrustedFiles": "open",
+    "git.openRepositoryInParentFolders": "always"
+}
