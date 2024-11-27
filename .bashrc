@@ -1,4 +1,4 @@
-# To source this from .bashrc from home directory, input:
+# To source this from .bashrc from home directory, or .bash_profile from Mac, input:
 # source [PATH_TO_THIS_FILE]
 
 # Source global definitions
