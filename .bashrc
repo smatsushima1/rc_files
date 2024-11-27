@@ -30,7 +30,8 @@ PS1="\[\033[1;32m\]\w $ \[\033[0m\]"
 
 # Aliases
 alias c='clear'
-alias l='ls -Ahlv --group-directories-first --color=auto'
+#alias l='ls -Ahlv --group-directories-first --color=auto'
+alias l='ls -Ahlv --color=auto'
 alias ..='cd ..'
 alias v='vim'
 alias grep='grep --color=auto'
