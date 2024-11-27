@@ -1,0 +1,16 @@
+# First time install of git:
+# [install homebrew]
+# export PATH=$PATH:/opt/homebrew/bin
+# brew install git
+# [create .gitconfig]
+# brew install gh
+# gh auth login
+# [https, Y]
+
+
+[user]
+    username = smatsushima1
+    email = smatsushima1@gmail.com
+
+[core]
+    editor = vim
